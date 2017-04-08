@@ -46,11 +46,21 @@ void loop()
     pc = Serial.read(); 
     if (pc == pw)
     {
-      
+      lcd.clear();
+      lcd.print("Password is correct.");
     }
     else
     {
-      
+      lcd.clear();
+      lcd.print("Password is Incorrect");
+      tone(buzzer, 1000); // Send 1KHz sound signal...
+      delay(1000);        // ...for 1 sec
+      noTone(buzzer);     // Stop sound...
+      delay(100);
+      tone(buzzer, 1000);
+      delay(1000);
+      noTone(buzzer);
+      delay(2000);
     }
   }
 
